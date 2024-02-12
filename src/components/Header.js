@@ -58,13 +58,13 @@ export function Header(props) {
         <li className="nav-item">
         <Link className="nav-link active" aria-current="page" to="/about">About</Link>
         </li>
-        <li class="nav-item dropdown">
-          <Link class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
           </Link>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            {newsCateogryArray.map(element=> {
-                return <li><Link class="dropdown-item pointer" onClick={()=> props.clickCategory(element.key)}>{element.name}</Link></li>
+          <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            {newsCateogryArray.map((element,i)=> {
+                return <li key={i}><Link className="dropdown-item pointer" onClick={()=> props.clickCategory(element.key)}>{element.name}</Link></li>
             })}
           </ul>
         </li>
