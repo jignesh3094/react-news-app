@@ -56,7 +56,7 @@ export function Header(props) {
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link active" aria-current="page" to="about">About</Link>
+        <Link className="nav-link active" aria-current="page" to="/about">About</Link>
         </li>
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

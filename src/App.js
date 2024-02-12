@@ -19,7 +19,7 @@ const clickCategory=(category)=> {
 }
   return (
     <>
-    <Router>
+    <Router basename={'/react-news-app'}>
     <Header clickCategory={clickCategory}/>
     <Routes>
     <Route path="/" exact element={<Home category={category} />} />
