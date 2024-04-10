@@ -23,8 +23,8 @@ function App() {
   return (
 
     <>
-    <State  basename={"/react-news-app"}>
-    <Router>
+    <State>
+    <Router basename={"/react-news-app"}>
     <Header/>
     <Routes>
     <Route path="/" exact element={<Home/>} />
