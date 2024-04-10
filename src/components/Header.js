@@ -6,6 +6,7 @@ import {
 import {Context} from '../context/Context';
 import { useLocation } from 'react-router-dom'
 import  axios  from 'axios';
+import { api_url } from '../const/const';
 // import { Loader } from './Loader';
 
 
@@ -19,7 +20,7 @@ export function Header(props) {
   const getCategory = async()=> {
    // loaderState(true);
     try {
-     const {data} = await axios.get('http://localhost:3000/categories');
+     const {data} = await axios.get(api_url+'categories');
      setnewsCateogryArray(data.data);
      //loaderState(false);
     }

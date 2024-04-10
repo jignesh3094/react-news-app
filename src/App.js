@@ -23,7 +23,7 @@ function App() {
   return (
 
     <>
-    <State>
+    <State basename="/react-news-app">
     <Router>
     <Header/>
     <Routes>
