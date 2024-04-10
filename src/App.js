@@ -24,7 +24,7 @@ function App() {
 
     <>
     <State>
-    <Router basename={"/a"}>
+    <Router basename={"/react-news-app"}>
     <Header/>
     <Routes>
     <Route path="/" exact element={<Home/>} />
