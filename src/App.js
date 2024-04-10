@@ -24,7 +24,7 @@ function App() {
 
     <>
     <State>
-    <Router basename={"/"}>
+    <Router basename={"/a"}>
     <Header/>
     <Routes>
     <Route path="/" exact element={<Home/>} />
