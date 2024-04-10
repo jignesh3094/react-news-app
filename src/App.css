@@ -9,8 +9,19 @@ section .section-title {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    margin-bottom: 60px;
+  }
 #footer {
     background: black !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
 #footer h5{
 	padding-left: 10px;
@@ -78,4 +89,7 @@ section .section-title {
 }
 .pointer{
   cursor: pointer;
+}
+.mt-10 {
+  margin-top: 1rem;
 }

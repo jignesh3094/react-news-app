@@ -1,46 +1,36 @@
 
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
     Link
   } from "react-router-dom";
-let newsCateogryArray = [
-    {
-        name: 'Business',
-        key: 'business'
-        
-    },
-    {
-        name: 'Entertainment',
-        key: 'entertainment'
-        
-    },
-    {
-        name: 'General',
-        key: 'general'
-        
-    },
-    {
-        name: 'Health',
-        key: 'health'
-        
-    }, {
-        name: 'Science',
-        key: 'science'
-        
-    },
-    {
-        name: 'Sports',
-        key: 'sports'
-        
-    },
-    {
-        name: 'Technology',
-        key: 'technology'
-        
-    }
-]
-export function Header(props) {
+import {Context} from '../context/Context';
+import { useLocation } from 'react-router-dom'
+import  axios  from 'axios';
+// import { Loader } from './Loader';
 
+
+export function Header(props) {
+  // const [loader,loaderState] = useState(true);
+  const [newsCateogryArray,setnewsCateogryArray] = useState();
+  useEffect(()=> {
+       getCategory();
+  },[]);
+
+  const getCategory = async()=> {
+   // loaderState(true);
+    try {
+     const {data} = await axios.get('http://localhost:3000/categories');
+     setnewsCateogryArray(data.data);
+     //loaderState(false);
+    }
+    catch(error) { 
+     // loaderState(false);
+    }
+  }
+  
+  let location = useLocation();
+  console.log(location);
+  let categoryState = useContext(Context)
   return (
     <div>
       <>
@@ -58,22 +48,30 @@ export function Header(props) {
         <li className="nav-item">
         <Link className="nav-link active" aria-current="page" to="/about">About</Link>
         </li>
-        <li className="nav-item dropdown">
+        { location.pathname === '/' ? <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
           </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            {newsCateogryArray.map((element,i)=> {
-                return <li key={i}><Link className="dropdown-item pointer" onClick={()=> props.clickCategory(element.key)}>{element.name}</Link></li>
-            })}
+            {newsCateogryArray && newsCateogryArray.length > 0 ? newsCateogryArray.map((element,i)=> {
+                return <li key={i}><Link className="dropdown-item pointer" onClick={()=> categoryState.clickCategory(element)}>{element.name}</Link></li>
+            }): ''}
           </ul>
         </li>
-       
+       : '' }
       </ul>
       
     </div>
   </div>
 </nav>
+{/* {loader ?   
+<div className='row'>
+   <div className='col-md-12 text-center mt-5'>
+    <Loader/> 
+    </div>
+    
+    </div>
+  : ''} */}
       </>
     </div>
   )
