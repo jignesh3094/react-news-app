@@ -24,13 +24,13 @@ function App() {
 
     <>
     <State>
-    <Router basename={"/react-news-app"}>
+    <Router basename={"/a"}>
     <Header/>
     <Routes>
-    <Route path={`/`} exact element={<Home/>} />
-    <Route path={`/about`} exact element={<About />} />
+    <Route path="/" exact element={<Home/>} />
+    <Route path="/about" exact element={<About />} />
     
-    <Route path={`:id`} exact element={<Details />} />
+    <Route path=":id" exact element={<Details />} />
     </Routes>
     </Router>
     <Footer/>
