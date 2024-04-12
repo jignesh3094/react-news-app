@@ -3,7 +3,7 @@ import './App.css';
 
 import {Home} from './components/Home'
 import {Details} from './components/Details'
-import {About} from './components/About'
+import {PostNews} from './components/PostNews'
 import {Header} from './components/Header'
 import {Footer} from './components/Footer'
 
@@ -28,7 +28,7 @@ function App() {
     <Header/>
     <Routes>
     <Route path="/" exact element={<Home/>} />
-    <Route path="/about" exact element={<About />} />
+    <Route path="/postnews" exact element={<PostNews />} />
     
     <Route path=":id" exact element={<Details />} />
     </Routes>

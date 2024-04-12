@@ -13,6 +13,7 @@ import { api_url } from '../const/const';
 export function Header(props) {
   // const [loader,loaderState] = useState(true);
   const [newsCateogryArray,setnewsCateogryArray] = useState();
+
   useEffect(()=> {
        getCategory();
   },[]);
@@ -22,6 +23,7 @@ export function Header(props) {
     try {
      const {data} = await axios.get(api_url+'categories');
      setnewsCateogryArray(data.data);
+     categoryState.changeCateogyList(data.data)
      //loaderState(false);
     }
     catch(error) { 
@@ -47,7 +49,7 @@ export function Header(props) {
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link active" aria-current="page" to="/about">About</Link>
+        <Link className="nav-link active" aria-current="page" to="/postnews">Post News</Link>
         </li>
         { location.pathname === '/' ? <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

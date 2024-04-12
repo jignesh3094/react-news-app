@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-import {api_url} from '../const/const';
+import {api_url,imageFolderPath} from '../const/const';
 import { useContext } from 'react';
 import {Context} from '../context/Context'
 import { Loader } from './Loader';
@@ -79,7 +79,7 @@ const newsDetail =  () =>{
   return (
    <>
    
-   <div className='container mb-3 mt-3'>
+   <div className='container mb-3 mt-3 content'>
    <div className='row'>
    <div className='col-md-12 text-center'>
 
@@ -93,7 +93,7 @@ const newsDetail =  () =>{
       {newsData && newsData.length ? newsData.map((element,i)=> {
           return  <div className='col-md-3 card-padding' key={i}>
           <div className="card" style={{width: '18rem'}}>
-    <img className="card-img-top" src={element.urlToImage ? element.urlToImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD29fVpqpUj3yqFMRPQwosAPd58E5sR-RK1yJEsJh16g&s'} alt={element.title}/>
+    <img className="card-img-top" src={element.image ? imageFolderPath+element.image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD29fVpqpUj3yqFMRPQwosAPd58E5sR-RK1yJEsJh16g&s'} alt={element.title}/>
     <div className="card-body">
       <h5 className="card-title">{element.title}</h5>
       <p className="card-text">{element.description}</p>

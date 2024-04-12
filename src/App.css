@@ -93,3 +93,13 @@ html {
 .mt-10 {
   margin-top: 1rem;
 }
+.content {
+  margin-top: 100px !important;
+}
+.navbar  {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+  margin-bottom: 100px !important;
+}
